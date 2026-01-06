@@ -13,9 +13,11 @@ jobs:
         permissions:
             contents: write
         steps:
-            - name: Checkout
+            - name: Checkout main repository
               uses: actions/checkout@v4
               with:
+                  repository: zaisustech/zaisus-atomic-ui
+                  path: main-repo
                   fetch-depth: 0
 
             - name: Setup Node.js
@@ -23,15 +25,16 @@ jobs:
               with:
                   node-version: "20"
                   cache: "yarn"
+                  cache-dependency-path: main-repo/docs-site/yarn.lock
 
             - name: Install dependencies
               run: |
-                  cd docs-site
+                  cd main-repo/docs-site
                   yarn install --frozen-lockfile
 
             - name: Build website
               run: |
-                  cd docs-site
+                  cd main-repo/docs-site
                   yarn build
 
             - name: Deploy to GitHub Pages
@@ -39,5 +42,5 @@ jobs:
               if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./docs-site/build
+                  publish_dir: ./main-repo/docs-site/build
                   cname: false
