@@ -4,7 +4,7 @@ Atomic UI refers to the Atomic Design methodology, a system for creating robust,
 
 ## 📚 Documentation
 
-**Full documentation is available at:** [https://zaisustech.github.io/zaisus-atomic-ui/](https://zaisustech.github.io/zaisus-atomic-ui/)
+**Full documentation is available at:** [https://zaisustech.github.io/zaisus-atomic-ui-document/](https://zaisustech.github.io/zaisus-atomic-ui-document/)
 
 The documentation includes:
 - Complete installation guide
@@ -97,36 +97,36 @@ function App() {
 }
 ```
 
-For detailed setup instructions and component usage, see the [documentation](https://zaisustech.github.io/zaisus-atomic-ui/).
+For detailed setup instructions and component usage, see the [documentation](https://zaisustech.github.io/zaisus-atomic-ui-document/).
 
 ## Available Components
 
-- [Accordion](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/accordion)
-- [ActionSheet](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/action-sheet)
-- [Badge](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/badge)
-- [Button](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/button)
-- [Card](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/card)
-- [Carousel](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/carousel)
-- [Divider](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/divider)
-- [DropdownField](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/dropdown-field)
-- [FormFieldContainer](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/form-field-container)
-- [Icon](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/icon)
-- [ListItem](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/list-item)
-- [Pager](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/pager)
-- [ProgressBar](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/progress-bar)
-- [ProgressCircle](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/progress-circle)
-- [RichText](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/rich-text)
-- [SegmentedControl](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/segmented-control)
-- [Snackbar](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/snackbar)
-- [Spacer](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/spacer)
-- [Stepper](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/stepper)
-- [TabView](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/tab-view)
-- [Text](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/text)
-- [TextInputField](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/text-input-field)
-- [Toast](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/toast)
-- [Visible](https://zaisustech.github.io/zaisus-atomic-ui/docs/components/visible)
+- [Accordion](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/accordion)
+- [ActionSheet](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/action-sheet)
+- [Badge](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/badge)
+- [Button](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/button)
+- [Card](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/card)
+- [Carousel](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/carousel)
+- [Divider](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/divider)
+- [DropdownField](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/dropdown-field)
+- [FormFieldContainer](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/form-field-container)
+- [Icon](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/icon)
+- [ListItem](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/list-item)
+- [Pager](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/pager)
+- [ProgressBar](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/progress-bar)
+- [ProgressCircle](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/progress-circle)
+- [RichText](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/rich-text)
+- [SegmentedControl](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/segmented-control)
+- [Snackbar](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/snackbar)
+- [Spacer](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/spacer)
+- [Stepper](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/stepper)
+- [TabView](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/tab-view)
+- [Text](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/text)
+- [TextInputField](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/text-input-field)
+- [Toast](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/toast)
+- [Visible](https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/visible)
 
-For complete component documentation with props, examples, and usage, visit the [documentation site](https://zaisustech.github.io/zaisus-atomic-ui/).
+For complete component documentation with props, examples, and usage, visit the [documentation site](https://zaisustech.github.io/zaisus-atomic-ui-document/).
 
 ## Contributing
 
