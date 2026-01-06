@@ -1,0 +1,121 @@
+---
+sidebar_position: 8
+---
+
+import { EmptyStatePreview } from '@site/src/components/EmptyStatePreview';
+
+# EmptyState
+
+A component for displaying empty states when there is no content to show.
+
+## Live Example
+
+Try the interactive examples below:
+
+<EmptyStatePreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { EmptyState } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <EmptyState
+    title="No items found"
+    message="There are no items to display at this time."
+  />
+);
+```
+
+## Props
+
+### title
+
+Type: `string`
+
+Title text to display.
+
+### message
+
+Type: `string`
+
+Message text to display.
+
+### image
+
+Type: `React.ReactNode`
+
+Default value: Icon (inbox)
+
+Custom image or icon to display. If not provided, defaults to an inbox icon.
+
+### onPress
+
+Type: `() => void`
+
+Callback fired when button is pressed.
+
+### buttonTitle
+
+Type: `string`
+
+Text for the action button. Button only appears if both `onPress` and `buttonTitle` are provided.
+
+### style
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the container.
+
+### testID
+
+Type: `string`
+
+Test identifier for the component.
+
+## Example
+
+### Basic Empty State
+
+<EmptyStatePreview title="No items found" message="There are no items to display at this time." />
+
+### With Action Button
+
+<EmptyStatePreview 
+  title="No items found" 
+  message="There are no items to display at this time."
+  buttonTitle="Add Item"
+/>
+
+### Code Examples
+
+```tsx
+import { EmptyState } from '@zaisustech/atomic-ui';
+
+// Basic empty state
+<EmptyState
+  title="No items found"
+  message="There are no items to display at this time."
+/>
+
+// With action button
+<EmptyState
+  title="No items found"
+  message="There are no items to display at this time."
+  buttonTitle="Add Item"
+  onPress={() => console.log('Add item pressed')}
+/>
+
+// With custom image
+<EmptyState
+  title="No search results"
+  message="Try adjusting your search criteria."
+  image={<Icon name="search" type="fa" size={64} />}
+  buttonTitle="Clear Search"
+  onPress={handleClearSearch}
+/>
+```
+
+
+
+

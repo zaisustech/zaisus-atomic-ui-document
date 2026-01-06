@@ -1,0 +1,101 @@
+---
+sidebar_position: 15
+---
+
+import { RichTextPreview } from '@site/src/components/RichTextPreview';
+
+# RichText
+
+A text component that supports highlighted text and clickable links using HTML-like syntax.
+
+## Live Example
+
+Try the interactive examples below:
+
+<RichTextPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { RichText } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <RichText
+    text="This is <h>highlighted</h> text with a <a href='https://example.com'>link</a>."
+    highlightedStyle={{ color: '#4ECDC4', fontWeight: 'bold' }}
+    linkStyle={{ color: '#0066CC', textDecorationLine: 'underline' }}
+    onPressLink={(url) => console.log('Link:', url)}
+  />
+);
+```
+
+## Formatting Syntax
+
+- Highlighted text: `<h>text</h>`
+- Links: `<a href='url'>text</a>`
+
+## Props
+
+### text
+
+Type: `string`
+
+Text content with formatting tags.
+
+### textStyle
+
+Type: `TextStyle`
+
+Custom styles for regular text.
+
+### linkStyle
+
+Type: `TextStyle`
+
+Custom styles for links.
+
+### highlightedStyle
+
+Type: `TextStyle`
+
+Styles for highlighted text.
+
+### onPressLink
+
+Type: `(value?: string) => void`
+
+Callback fired when a link is pressed.
+
+## Example
+
+### Basic Rich Text
+
+<RichTextPreview text="This is <h>highlighted</h> text with a <a href='https://example.com'>link</a>." />
+
+### Code Examples
+
+```tsx
+import { RichText } from '@zaisustech/atomic-ui';
+
+<RichText
+  text="This is <h>highlighted</h> text with a <a href='https://example.com'>link</a>."
+  highlightedStyle={{ color: '#4ECDC4', fontWeight: 'bold' }}
+  linkStyle={{ color: '#0066CC', textDecorationLine: 'underline' }}
+  onPressLink={(url) => console.log('Link:', url)}
+/>
+
+// Multiple highlights and links
+<RichText
+  text="You can have <h>multiple highlights</h> and <h>links</h> in the same text."
+  highlightedStyle={{ color: '#FF6B6B', fontWeight: 'bold' }}
+  linkStyle={{ color: '#4ECDC4', textDecorationLine: 'underline' }}
+  onPressLink={(url) => console.log('Link:', url)}
+/>
+```
+
+
+
+
+
+
+

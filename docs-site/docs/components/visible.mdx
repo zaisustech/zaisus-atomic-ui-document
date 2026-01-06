@@ -1,0 +1,83 @@
+---
+sidebar_position: 24
+---
+
+import { VisiblePreview } from '@site/src/components/VisiblePreview';
+
+# Visible
+
+A simple component for conditionally rendering content based on a boolean prop.
+
+## Live Example
+
+Try the interactive examples below:
+
+<VisiblePreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { Visible, Text } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  return (
+    <Visible visible={isVisible}>
+      <Text>This content is conditionally rendered</Text>
+    </Visible>
+  );
+};
+```
+
+## Props
+
+### children
+
+Type: `React.ReactNode`
+
+Content to conditionally render.
+
+### visible
+
+Type: `boolean`
+
+Whether the content should be visible.
+
+## Example
+
+### Toggle Visibility
+
+<VisiblePreview />
+
+### Code Examples
+
+```tsx
+import { Visible, Text } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  return (
+    <>
+      <Button title="Toggle" onPress={() => setIsVisible(!isVisible)} />
+      <Visible visible={isVisible}>
+        <Text>This content is conditionally rendered</Text>
+      </Visible>
+    </>
+  );
+}
+
+// Always visible
+<Visible visible={true}>
+  <Text>This is always visible</Text>
+</Visible>
+
+// Always hidden
+<Visible visible={false}>
+  <Text>This is never rendered</Text>
+</Visible>
+```
+
+

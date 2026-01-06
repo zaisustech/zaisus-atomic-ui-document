@@ -1,0 +1,137 @@
+---
+sidebar_position: 16
+---
+
+import { SegmentedControlPreview } from '@site/src/components/SegmentedControlPreview';
+
+# SegmentedControl
+
+A segmented control component for selecting between multiple options.
+
+## Live Example
+
+Try the interactive examples below:
+
+<SegmentedControlPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { SegmentedControl } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+const MyComponent = () => {
+  const [selectedValue, setSelectedValue] = useState('first');
+
+  const segments = [
+    { label: 'First', value: 'first' },
+    { label: 'Second', value: 'second' },
+    { label: 'Third', value: 'third' },
+  ];
+
+  return (
+    <SegmentedControl
+      segments={segments}
+      value={selectedValue}
+      onChange={setSelectedValue}
+      borderRadius={12}
+    />
+  );
+};
+```
+
+## Props
+
+### segments
+
+Type: `Segment<T>[]`
+
+Array of segments. Each segment has `label: string` and `value: T`.
+
+### value
+
+Type: `T`
+
+Currently selected segment value.
+
+### onChange
+
+Type: `(value: string) => void`
+
+Callback fired when segment is selected.
+
+### containerStyle
+
+Type: `ViewStyle`
+
+Custom styles for the container.
+
+### segmentStyle
+
+Type: `ViewStyle`
+
+Custom styles for individual segments.
+
+### activeSegmentStyle
+
+Type: `ViewStyle`
+
+Custom styles for the active segment.
+
+### textStyle
+
+Type: `TextStyle`
+
+Custom styles for segment text.
+
+### activeTextStyle
+
+Type: `TextStyle`
+
+Custom styles for active segment text.
+
+### borderRadius
+
+Type: `number`
+
+Default value: `8`
+
+Border radius of the control.
+
+## Example
+
+### Basic Segmented Control
+
+<SegmentedControlPreview />
+
+### With Custom Border Radius
+
+<SegmentedControlPreview showMultiple={true} />
+
+### Code Examples
+
+```tsx
+import { SegmentedControl } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [selectedValue, setSelectedValue] = useState('first');
+
+  const segments = [
+    { label: 'First', value: 'first' },
+    { label: 'Second', value: 'second' },
+    { label: 'Third', value: 'third' },
+  ];
+
+  return (
+    <SegmentedControl
+      segments={segments}
+      value={selectedValue}
+      onChange={setSelectedValue}
+      borderRadius={12}
+    />
+  );
+}
+```
+
+

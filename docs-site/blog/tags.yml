@@ -1,0 +1,19 @@
+announcement:
+  label: Announcement
+  permalink: /announcement
+  description: Announcement posts
+
+atomic-design:
+  label: Atomic Design
+  permalink: /atomic-design
+  description: Posts about Atomic Design methodology
+
+tutorial:
+  label: Tutorial
+  permalink: /tutorial
+  description: Tutorial posts
+
+react-native:
+  label: React Native
+  permalink: /react-native
+  description: Posts about React Native

@@ -1,0 +1,92 @@
+---
+sidebar_position: 18
+---
+
+import { SpacerPreview } from '@site/src/components/SpacerPreview';
+
+# Spacer
+
+A spacing component for adding consistent gaps between elements.
+
+* horizontal
+* vertical
+
+## Live Example
+
+Try the interactive examples below:
+
+<SpacerPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { Spacer } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <>
+    <Text>First item</Text>
+    <Spacer orientation="vertical" spacing={16} />
+    <Text>Second item</Text>
+  </>
+);
+```
+
+## Props
+
+### orientation
+
+Type: `'horizontal' | 'vertical'`
+
+Default value: `'vertical'`
+
+Direction of the spacer. Controls whether the spacer adds horizontal or vertical spacing.
+
+* `'vertical'` - Adds vertical spacing (default)
+* `'horizontal'` - Adds horizontal spacing
+
+### spacing
+
+Type: `number`
+
+Custom spacing value (uses theme spacing if not provided).
+
+### style
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the spacer.
+
+## Example
+
+### Vertical Spacer
+
+<SpacerPreview orientation="vertical" spacing={16} />
+
+### Horizontal Spacer
+
+<SpacerPreview orientation="horizontal" spacing={16} />
+
+### Code Examples
+
+```tsx
+import { Spacer } from '@zaisustech/atomic-ui';
+
+// Vertical spacer
+<Text>First item</Text>
+<Spacer orientation="vertical" spacing={16} />
+<Text>Second item</Text>
+
+// Horizontal spacer
+<View style={{ flexDirection: 'row' }}>
+  <Text>Left</Text>
+  <Spacer orientation="horizontal" spacing={16} />
+  <Text>Right</Text>
+</View>
+```
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+---
+sidebar_position: 9
+---
+
+import { FormFieldContainerPreview } from '@site/src/components/FormFieldContainerPreview';
+
+# FormFieldContainer
+
+A container component for form fields with error handling and focus states.
+
+## Live Example
+
+Try the interactive examples below:
+
+<FormFieldContainerPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { FormFieldContainer, Icon, Text } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <FormFieldContainer
+    error="This field is required"
+    isFocus={isFocused}
+    leftElement={<Icon name="user" type="fa" />}
+  >
+    <Text>Field content</Text>
+  </FormFieldContainer>
+);
+```
+
+## Props
+
+### children
+
+Type: `React.ReactNode | React.ReactNode[]`
+
+Form field content.
+
+### error
+
+Type: `string`
+
+Error message to display.
+
+### isFocus
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the field is focused.
+
+### disabled
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the field is disabled.
+
+### leftElement
+
+Type: `React.ReactNode`
+
+Element displayed on the left side.
+
+### rightElement
+
+Type: `React.ReactNode`
+
+Element displayed on the right side.
+
+### containerStyle
+
+Type: `ViewStyle`
+
+Custom styles for the container.
+
+### name
+
+Type: `string`
+
+Field name.
+
+### variant
+
+Type: `'primary'`
+
+Visual variant.
+
+## Example
+
+### Different States
+
+<FormFieldContainerPreview showMultiple={true} />
+
+### Code Examples
+
+```tsx
+import { FormFieldContainer, Icon, Text } from '@zaisustech/atomic-ui';
+
+// Normal state
+<FormFieldContainer
+  leftElement={<Icon name="user" type="fa" />}
+>
+  <Text>Field content</Text>
+</FormFieldContainer>
+
+// Focused state
+<FormFieldContainer
+  isFocus={true}
+  leftElement={<Icon name="envelope" type="fa" />}
+>
+  <Text>Field content</Text>
+</FormFieldContainer>
+
+// Error state
+<FormFieldContainer
+  error="This field is required"
+  leftElement={<Icon name="lock" type="fa" />}
+>
+  <Text>Field content</Text>
+</FormFieldContainer>
+
+// Disabled state
+<FormFieldContainer
+  disabled={true}
+  leftElement={<Icon name="ban" type="fa" />}
+>
+  <Text>Field content</Text>
+</FormFieldContainer>
+```
+
+
+
+
+
+
+

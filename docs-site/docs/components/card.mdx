@@ -1,0 +1,135 @@
+---
+sidebar_position: 5
+---
+
+import { CardPreview } from '@site/src/components/CardPreview';
+
+# Card
+
+A container component with shadow variants for elevated content.
+
+* light
+* thin
+* medium
+* thick
+* heavy
+
+## Live Example
+
+Try the interactive examples below:
+
+<CardPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { Card, Text } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <Card variant="medium" borderRadius={8}>
+    <Text variant="Paragraph.default.bold">Card Title</Text>
+    <Text variant="Paragraph.small.regular">Card content goes here.</Text>
+  </Card>
+);
+```
+
+## Props
+
+### children
+
+Type: `React.ReactNode`
+
+Content to display inside the card.
+
+### variant
+
+Type: `'light' | 'thin' | 'medium' | 'thick' | 'heavy'`
+
+Shadow variant. If not provided, no shadow is applied. Controls the elevation and shadow intensity of the card.
+
+* `'light'` - Subtle shadow for minimal elevation
+* `'thin'` - Light shadow for slight elevation
+* `'medium'` - Moderate shadow for standard elevation
+* `'thick'` - Strong shadow for high elevation
+* `'heavy'` - Very strong shadow for maximum elevation
+
+### borderRadius
+
+Type: `number`
+
+Custom border radius (overrides theme default).
+
+### shadowOpacity
+
+Type: `number`
+
+Custom shadow opacity (0-1).
+
+### shadowColor
+
+Type: `string`
+
+Custom shadow color.
+
+### style
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the card container.
+
+## Example
+
+### Different Shadow Variants
+
+#### Light Shadow
+
+<CardPreview variant="light" />
+
+#### Thin Shadow
+
+<CardPreview variant="thin" />
+
+#### Medium Shadow
+
+<CardPreview variant="medium" />
+
+#### Thick Shadow
+
+<CardPreview variant="thick" />
+
+#### Heavy Shadow
+
+<CardPreview variant="heavy" />
+
+#### Custom Styled Card
+
+<CardPreview variant="medium" borderRadius={16} shadowOpacity={0.5} shadowColor="#9B59B6" />
+
+### Code Examples
+
+```tsx
+import { Card, Text } from '@zaisustech/atomic-ui';
+
+// Basic card with medium shadow
+<Card variant="medium" borderRadius={8}>
+  <Text variant="Paragraph.default.bold">Card Title</Text>
+  <Text variant="Paragraph.small.regular">Card content goes here.</Text>
+</Card>
+
+// Custom styled card
+<Card 
+  variant="thick" 
+  borderRadius={16} 
+  shadowOpacity={0.5}
+  shadowColor="#9B59B6"
+>
+  <Text variant="Paragraph.default.bold">Custom Styled Card</Text>
+  <Text variant="Paragraph.small.regular">Custom border radius, shadow opacity, and shadow color</Text>
+</Card>
+```
+
+
+
+
+
+

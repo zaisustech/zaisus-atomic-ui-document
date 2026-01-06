@@ -1,0 +1,53 @@
+---
+name: "Publish Package"
+"on":
+  push:
+    branches:
+      - "main"
+    tags:
+      - "v*.*.*"
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: "ubuntu-latest"
+    permissions:
+      contents: "write"
+      packages: "write"
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v5"
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Setup Node & Yarn"
+        uses: "./.github/actions/setup"
+      - name: "Bump version patch"
+        if: "github.event_name == 'push' && github.ref == 'refs/heads/main'"
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          npm version patch --no-git-tag-version
+          git add package.json
+          git commit -m "chore: bump version patch [skip ci]"
+          git push
+      - name: "Build package"
+        run: "yarn prepare"
+      - name: "Configure npm for GitHub Packages"
+        run: "echo \"@zaisustech:registry=https://npm.pkg.github.com\" >> .npmrc\necho \"//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}\" >> .npmrc\n"
+        env:
+          NODE_AUTH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: "Publish to GitHub Packages"
+        run: "npm publish"
+        env:
+          NODE_AUTH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          
+      - name: "Push Documentation to Public Repository"
+        continue-on-error: true
+        run: |
+          chmod +x ./push-docs.sh
+          ./push-docs.sh
+        env:
+          GIT_TERMINAL_PROMPT: 0
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

@@ -1,0 +1,53 @@
+{
+  "name": "@zaisustech/atomic-ui-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx expo start --dev-client",
+    "android": "npx expo run:android",
+    "ios": "npx expo run:ios",
+    "storybook-generate": "sb-rn-get-stories",
+    "clean": "rm -rf node_modules && rm -rf .expo && rm -rf ios && rm -rf android && rm -rf .expo",
+    "force:ios": "yarn clean && yarn install && yarn ios && yarn start"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^15.0.3",
+    "@react-native-vector-icons/fontawesome": "^12.4.0",
+    "@react-native-vector-icons/ionicons": "^12.3.0",
+    "@react-native-vector-icons/material-design-icons": "^12.4.0",
+    "expo": "~54.0.30",
+    "expo-dev-client": "~6.0.20",
+    "i18next": "^25.7.3",
+    "react": "19.1.0",
+    "react-i18next": "^16.5.0",
+    "react-native": "0.81.5",
+    "react-native-gesture-handler": "^2.30.0",
+    "react-native-is-edge-to-edge": "^1.2.1",
+    "react-native-modal": "^14.0.0-rc.1",
+    "react-native-reanimated": "^4.2.1",
+    "react-native-safe-area-context": "^5.6.2",
+    "react-native-svg": "^15.15.1",
+    "react-native-worklets": "^0.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@gorhom/bottom-sheet": "^5.2.8",
+    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-community/datetimepicker": "^8.5.1",
+    "@react-native-community/slider": "^5.1.1",
+    "@storybook/addon-ondevice-actions": "^10.1.1",
+    "@storybook/addon-ondevice-controls": "^10.1.1",
+    "@storybook/react-native": "^10.1.1",
+    "babel-loader": "^8.4.1",
+    "react-dom": "19.1.0",
+    "react-native-monorepo-config": "^0.3.1",
+    "storybook": "^10.1.10"
+  },
+  "private": true,
+  "resolutions": {
+    "@storybook/react": "8.5.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  }
+}

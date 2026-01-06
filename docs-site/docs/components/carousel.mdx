@@ -1,0 +1,85 @@
+---
+sidebar_position: 6
+---
+
+import { CarouselPreview } from '@site/src/components/CarouselPreview';
+
+# Carousel
+
+A horizontal carousel component for swiping through multiple pages.
+
+## Live Example
+
+Try the interactive examples below:
+
+<CarouselPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { Carousel, Text } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+const MyComponent = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+
+  return (
+    <Carousel page={currentPage} onChangePage={setCurrentPage}>
+      <View><Text>Page 1</Text></View>
+      <View><Text>Page 2</Text></View>
+      <View><Text>Page 3</Text></View>
+    </Carousel>
+  );
+};
+```
+
+## Props
+
+### children
+
+Type: `React.ReactNode[]`
+
+Array of carousel pages.
+
+### page
+
+Type: `number`
+
+Currently active page index.
+
+### onChangePage
+
+Type: `(page: number) => void`
+
+Callback fired when page changes.
+
+## Example
+
+### Basic Carousel
+
+<CarouselPreview />
+
+### Code Examples
+
+```tsx
+import { Carousel, Text } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [currentPage, setCurrentPage] = useState(0);
+
+  return (
+    <Carousel page={currentPage} onChangePage={setCurrentPage}>
+      <View><Text>Page 1</Text></View>
+      <View><Text>Page 2</Text></View>
+      <View><Text>Page 3</Text></View>
+    </Carousel>
+  );
+}
+```
+
+
+
+
+
+

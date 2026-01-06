@@ -1,0 +1,165 @@
+---
+sidebar_position: 22
+---
+
+import { TextInputFieldPreview } from '@site/src/components/TextInputFieldPreview';
+
+# TextInputField
+
+A text input field component with floating label, error handling, and password visibility toggle.
+
+## Live Example
+
+Try the interactive examples below:
+
+<TextInputFieldPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { TextInputField, Icon } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+const MyComponent = () => {
+  const [email, setEmail] = useState('');
+
+  return (
+    <TextInputField
+      placeholder="Enter email"
+      value={email}
+      onChangeText={setEmail}
+      keyboardType="email-address"
+      leftElement={<Icon name="envelope" type="fa" />}
+    />
+  );
+};
+```
+
+## Props
+
+### value
+
+Type: `string`
+
+Input value.
+
+### onChangeText
+
+Type: `(text: string) => void`
+
+Callback fired when text changes.
+
+### placeholder
+
+Type: `string`
+
+Placeholder text.
+
+### error
+
+Type: `string`
+
+Error message to display.
+
+### disabled
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the input is disabled.
+
+### secureTextEntry
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether to hide text (for passwords).
+
+### isShowPasswordVisibleButton
+
+Type: `boolean`
+
+Default value: `true`
+
+Whether to show password visibility toggle.
+
+### isShowClearButton
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether to show clear button.
+
+### leftElement
+
+Type: `React.ReactNode`
+
+Element displayed on the left side.
+
+### rightElement
+
+Type: `React.ReactNode`
+
+Element displayed on the right side.
+
+### testID
+
+Type: `string`
+
+Test identifier.
+
+### All other TextInputProps
+
+Standard React Native TextInput props.
+
+## Example
+
+### Basic Text Input
+
+<TextInputFieldPreview placeholder="Enter text" />
+
+### Password Input
+
+<TextInputFieldPreview showMultiple={true} />
+
+### Code Examples
+
+```tsx
+import { TextInputField, Icon } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  return (
+    <>
+      <TextInputField
+        placeholder="Enter email"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+        leftElement={<Icon name="envelope" type="fa" />}
+      />
+
+      <TextInputField
+        placeholder="Enter password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+        isShowClearButton
+      />
+    </>
+  );
+}
+```
+
+
+
+
+
+
+

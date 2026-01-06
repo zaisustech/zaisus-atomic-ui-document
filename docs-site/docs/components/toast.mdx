@@ -1,0 +1,143 @@
+---
+sidebar_position: 23
+---
+
+import { ToastPreview } from '@site/src/components/ToastPreview';
+
+# Toast
+
+A toast notification system using the `useToast` hook and `ToastProvider`.
+
+* success
+* error
+* warning
+* info
+
+## Live Example
+
+Try the interactive examples below:
+
+<ToastPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { useToast, Button, ToastProvider } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { showSuccessToast } = useToast();
+
+  return (
+    <Button 
+      title="Show Success" 
+      onPress={() => 
+        showSuccessToast({
+          title: 'Success!',
+          message: 'Operation completed successfully.',
+        })
+      } 
+    />
+  );
+}
+
+function App() {
+  return (
+    <ToastProvider>
+      <MyComponent />
+    </ToastProvider>
+  );
+}
+```
+
+## Setup
+
+First, wrap your app with `ToastProvider`:
+
+```tsx
+import { ToastProvider } from '@zaisustech/atomic-ui';
+
+function App() {
+  return (
+    <ToastProvider>
+      {/* Your app */}
+    </ToastProvider>
+  );
+}
+```
+
+## useToast Hook
+
+The `useToast` hook provides methods to show different types of toasts:
+
+| Method | Parameters | Description |
+|--------|------------|-------------|
+| `showToast` | `{ type: ToastType, title: string, message?: string, duration?: number }` | Show a toast with specified type |
+| `showSuccessToast` | `{ title: string, message?: string, duration?: number }` | Show a success toast |
+| `showErrorToast` | `{ title: string, message?: string, duration?: number }` | Show an error toast |
+| `showInfoToast` | `{ title: string, message?: string, duration?: number }` | Show an info toast |
+| `showWarningToast` | `{ title: string, message?: string, duration?: number }` | Show a warning toast |
+
+## Toast Parameters
+
+### title
+
+Type: `string`
+
+Toast title text.
+
+### message
+
+Type: `string`
+
+Optional message text below title.
+
+### duration
+
+Type: `number`
+
+Default value: `3000`
+
+Duration in milliseconds before auto-dismiss.
+
+## Example
+
+### Different Toast Types
+
+Click the buttons below to see different toast types:
+
+<ToastPreview showMultiple={true} />
+
+### Code Examples
+
+```tsx
+import { useToast, Button } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { showSuccessToast, showErrorToast, showInfoToast, showWarningToast } = useToast();
+
+  return (
+    <>
+      <Button 
+        title="Show Success" 
+        onPress={() => 
+          showSuccessToast({
+            title: 'Success!',
+            message: 'Operation completed successfully.',
+            duration: 3000
+          })
+        } 
+      />
+      <Button 
+        title="Show Error" 
+        onPress={() => 
+          showErrorToast({
+            title: 'Error',
+            message: 'Something went wrong.'
+          })
+        } 
+      />
+    </>
+  );
+}
+```
+

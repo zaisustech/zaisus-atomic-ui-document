@@ -1,0 +1,294 @@
+---
+sidebar_position: 4
+---
+
+# Tokens
+
+Design tokens are the foundational design decisions of your design system. They represent the smallest pieces of your design language and ensure consistency across your application.
+
+## Overview
+
+The Atomic UI library provides a comprehensive set of design tokens:
+
+- **Colors**: Semantic and primitive color palettes
+- **Spacing**: Consistent spacing scale
+- **Typography**: Text styles and font definitions
+- **Shadows**: Elevation and shadow definitions
+- **Radius**: Border radius values
+
+## Colors
+
+### Semantic Colors
+
+Semantic colors represent the meaning and purpose of colors in your UI, rather than their visual appearance.
+
+#### Base Colors
+
+| Token | Default Value | Usage |
+|-------|--------------|-------|
+| `background` | `#FFFFFF` | Main background color |
+| `surface` | `#F2F2F7` | Surface/card background |
+| `card` | `#F2F2F7` | Card component background |
+| `border` | `#C6C6C8` | Border color |
+| `divider` | `#C6C6C8` | Divider line color |
+
+#### Text Colors
+
+| Token | Default Value | Usage |
+|-------|--------------|-------|
+| `text` | `#000000` | Primary text color |
+| `textSecondary` | `#6D6D70` | Secondary text color |
+| `textDisabled` | `#C7C7CC` | Disabled text color |
+| `placeholder` | `#C7C7CC` | Placeholder text color |
+
+#### Brand Colors
+
+| Token | Default Value | Usage |
+|-------|--------------|-------|
+| `primary` | `#FF7300FF` | Primary brand color |
+| `primaryText` | `#FFFFFF` | Text on primary background |
+| `secondary` | `#5856D6` | Secondary brand color |
+| `secondaryText` | `#FFFFFF` | Text on secondary background |
+
+#### State Colors
+
+| Token | Default Value | Usage |
+|-------|--------------|-------|
+| `success` | `#34C759` | Success states |
+| `warning` | `#FF9500` | Warning states |
+| `error` | `#FF3B30` | Error states |
+| `info` | `#007AFF` | Informational states |
+
+#### Interaction Colors
+
+| Token | Default Value | Usage |
+|-------|--------------|-------|
+| `link` | `#007AFF` | Link color |
+| `focus` | `#007AFF` | Focus indicator color |
+| `ripple` | `rgba(0, 0, 0, 0.1)` | Ripple effect color |
+
+#### Disabled Colors
+
+| Token | Default Value | Usage |
+|-------|--------------|-------|
+| `disabled` | `#E5E5EA` | Disabled element background |
+| `disabledText` | `#C7C7CC` | Disabled text color |
+
+#### Overlay Colors
+
+| Token | Default Value | Usage |
+|-------|--------------|-------|
+| `backdrop` | `rgba(0, 0, 0, 0.4)` | Modal backdrop |
+| `shadow` | `rgba(0, 0, 0, 0.1)` | Shadow color |
+
+### Using Colors
+
+```tsx
+import { useTheme } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { colors } = useTheme();
+
+  return (
+    <View style={{ backgroundColor: colors.primary }}>
+      <Text style={{ color: colors.primaryText }}>
+        Primary Button
+      </Text>
+    </View>
+  );
+}
+```
+
+## Spacing
+
+The spacing scale provides consistent spacing values throughout your application.
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `none` | `0` | No spacing |
+| `xs` | `2` | Extra small spacing |
+| `s` | `4` | Small spacing |
+| `sm` | `8` | Small-medium spacing |
+| `md` | `16` | Medium spacing (default) |
+| `lg` | `24` | Large spacing |
+| `xl` | `32` | Extra large spacing |
+| `xxl` | `48` | 2x extra large |
+| `xxxl` | `64` | 3x extra large |
+| `xxxxl` | `80` | 4x extra large |
+| `xxxxxl` | `96` | 5x extra large |
+
+### Using Spacing
+
+```tsx
+import { useTheme } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { spacing } = useTheme();
+
+  return (
+    <View style={{
+      padding: spacing.md,
+      marginBottom: spacing.lg,
+      gap: spacing.sm,
+    }}>
+      {/* Content */}
+    </View>
+  );
+}
+```
+
+## Radius
+
+Border radius values for rounded corners.
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `none` | `0` | No rounding |
+| `sm` | `4` | Small radius |
+| `md` | `8` | Medium radius (default) |
+| `lg` | `12` | Large radius |
+| `xl` | `16` | Extra large radius |
+| `pill` | `9999` | Fully rounded (pill shape) |
+
+### Using Radius
+
+```tsx
+import { useTheme } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { radius } = useTheme();
+
+  return (
+    <View style={{
+      borderRadius: radius.md,
+    }}>
+      {/* Content */}
+    </View>
+  );
+}
+```
+
+## Shadows
+
+Shadow definitions for elevation and depth.
+
+| Token | Elevation | Shadow Offset | Shadow Radius | Usage |
+|-------|-----------|---------------|---------------|-------|
+| `light` | `2` | `{ width: 0, height: 1 }` | `2` | Subtle elevation |
+| `thin` | `3` | `{ width: 0, height: 2 }` | `3` | Light cards |
+| `medium` | `5` | `{ width: 0, height: 4 }` | `6` | Modals, dialogs |
+| `thick` | `8` | `{ width: 0, height: 8 }` | `8` | Overlays |
+| `heavy` | `12` | `{ width: 0, height: 12 }` | `10` | Prominent elements |
+
+### Using Shadows
+
+```tsx
+import { useTheme } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { shadows } = useTheme();
+
+  return (
+    <View style={{
+      ...shadows.medium,
+    }}>
+      {/* Content */}
+    </View>
+  );
+}
+```
+
+## Typography
+
+Typography tokens define text styles organized by category and size.
+
+### Paragraph Styles
+
+#### Small Paragraph
+- `typography.paragraph.small.regular`: 12px, regular weight
+- `typography.paragraph.small.bold`: 12px, bold weight
+- `typography.paragraph.small.italic`: 12px, italic style
+
+#### Default Paragraph
+- `typography.paragraph.default.regular`: 16px, regular weight
+- `typography.paragraph.default.bold`: 16px, bold weight
+- `typography.paragraph.default.italic`: 16px, italic style
+
+#### Large Paragraph
+- `typography.paragraph.large.regular`: 20px, regular weight
+- `typography.paragraph.large.bold`: 20px, bold weight
+- `typography.paragraph.large.italic`: 20px, italic style
+
+### Header Styles
+
+#### Small Header
+- `typography.header.small.regular`: 18px, regular weight
+- `typography.header.small.bold`: 18px, bold weight
+- `typography.header.small.italic`: 18px, italic style
+
+#### Default Header
+- `typography.header.default.regular`: 24px, regular weight
+- `typography.header.default.bold`: 24px, bold weight
+- `typography.header.default.italic`: 24px, italic style
+
+#### Large Header
+- `typography.header.large.regular`: 32px, regular weight
+- `typography.header.large.bold`: 32px, bold weight
+- `typography.header.large.italic`: 32px, italic style
+
+### Label Styles
+
+- `typography.label.regular`: 14px, regular weight
+- `typography.label.bold`: 14px, bold weight
+- `typography.label.italic`: 14px, italic style
+- `typography.label.small`: 12px, regular weight
+
+### Using Typography
+
+```tsx
+import { useTheme } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { typography } = useTheme();
+
+  return (
+    <>
+      <Text style={typography.header.large.bold}>
+        Main Title
+      </Text>
+      <Text style={typography.paragraph.default.regular}>
+        Body text content
+      </Text>
+      <Text style={typography.label.bold}>
+        Label Text
+      </Text>
+    </>
+  );
+}
+```
+
+## Best Practices
+
+1. **Use tokens, not values**: Always use design tokens instead of hardcoded values
+2. **Semantic over primitive**: Prefer semantic colors (`primary`, `error`) over raw colors
+3. **Consistent spacing**: Use the spacing scale for all spacing needs
+4. **Typography variants**: Use predefined typography variants instead of custom styles
+5. **Theme access**: Access tokens through `useTheme()` hook, not by importing directly
+
+## Token Structure
+
+All tokens are organized in the following structure:
+
+```
+tokens/
+├── semanticColors.ts    # Semantic color tokens
+├── primitiveColors.ts   # Raw color palette
+├── space.ts             # Spacing and radius tokens
+├── typography.ts        # Typography tokens
+└── shadows.ts          # Shadow definitions
+```
+
+## Customization
+
+You can customize tokens by providing a custom theme to `ThemeProvider`. See the [Theme documentation](./theme) for more details.
+

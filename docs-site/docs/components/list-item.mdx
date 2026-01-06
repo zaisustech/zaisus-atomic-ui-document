@@ -1,0 +1,114 @@
+---
+sidebar_position: 11
+---
+
+import { ListItemPreview } from '@site/src/components/ListItemPreview';
+
+# ListItem
+
+A list item component with title, subtitle, and optional left/right elements.
+
+## Live Example
+
+Try the interactive examples below:
+
+<ListItemPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { ListItem, Icon } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <ListItem 
+    title="Settings"
+    subtitle="Manage your preferences"
+    leftElement={<Icon name="settings" type="fa" />}
+    rightElement={<Icon name="chevron-forward" type="ion" />}
+    onPress={() => console.log('Pressed')}
+  />
+);
+```
+
+## Props
+
+### title
+
+Type: `string`
+
+Main text displayed in the list item.
+
+### subtitle
+
+Type: `string`
+
+Secondary text displayed below the title.
+
+### leftElement
+
+Type: `React.ReactNode`
+
+Element displayed on the left side.
+
+### rightElement
+
+Type: `React.ReactNode`
+
+Element displayed on the right side.
+
+### onPress
+
+Type: `() => void`
+
+Callback fired when list item is pressed.
+
+### style
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the container.
+
+### disabled
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the list item is disabled.
+
+## Example
+
+### Basic List Item
+
+<ListItemPreview title="Settings" subtitle="Manage your preferences" />
+
+### Multiple List Items
+
+<ListItemPreview showMultiple={true} />
+
+### Code Examples
+
+```tsx
+import { ListItem, Icon } from '@zaisustech/atomic-ui';
+
+<ListItem 
+  title="Settings"
+  subtitle="Manage your preferences"
+  leftElement={<Icon name="settings" type="fa" />}
+  rightElement={<Icon name="chevron-forward" type="ion" />}
+  onPress={() => navigate('Settings')}
+/>
+
+<ListItem 
+  title="Profile"
+  subtitle="View your profile"
+  disabled={true}
+/>
+```
+
+
+
+
+
+
+

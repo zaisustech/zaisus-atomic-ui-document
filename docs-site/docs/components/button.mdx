@@ -1,0 +1,165 @@
+---
+sidebar_position: 4
+---
+
+import { ButtonPreview } from '@site/src/components/ButtonPreview';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
+# Button
+
+A button is component that the user can press to trigger an action.
+
+* primary
+* secondary
+* tertiary
+* primary.plain (outlined)
+* primary.rounded
+
+
+## Live Example
+
+<ButtonPreview variant="primary" title="Primary Button"  showMultiple/>
+
+## Usage
+
+```tsx
+import { Button } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <Button 
+    variant="primary" 
+    title="Press me" 
+    onPress={() => console.log('Pressed')} 
+  />
+);
+```
+
+## Props
+
+### title
+
+Type: `string`
+
+Button text label.
+
+### onPress
+
+Type: `() => void`
+
+Callback fired when button is pressed.
+
+### variant
+
+Type: `ButtonVariant`
+
+Default value: `'primary'`
+
+Visual style variant. You can change the variant to adjust the styling to give it desired emphasis.
+
+* `'primary'` - Button with a background color (contained style), used for important action, have the most visual impact and high emphasis.
+* `'secondary'` - Button with a secondary background color, an alternative middle ground between contained and outlined buttons.
+* `'tertiary'` - Flat button without background or outline (text style), used for the lowest priority actions, especially when presenting multiple options.
+* `'primary.plain'` - Button with an outline without background (outlined style), typically used for important, but not primary action – represents medium emphasis.
+* `'primary.rounded'` - Button with a background color and rounded corners (elevated style), used when absolutely necessary e.g. button requires visual separation from a patterned background.
+* `'primary.small'`, `'secondary.small'`, `'tertiary.small'` - Smaller size variants
+* `'primary.rounded'`, `'secondary.rounded'`, `'tertiary.rounded'` - Variants with rounded corners
+* `'rounded'`, `'small'`, `'plain'` - Standalone modifiers that can be combined with base variants
+
+### disabled
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the button is disabled.
+
+### leftElement
+
+Type: `React.ReactNode`
+
+Element displayed on the left side.
+
+### rightElement
+
+Type: `React.ReactNode`
+
+Element displayed on the right side.
+
+### textVariant
+
+Type: `TextVariant`
+
+Text variant for the button title. See [Text component](/docs/components/text) for available variants.
+
+### textStyle
+
+Type: `StyleProp<TextStyle>`
+
+Custom styles for the text.
+
+### style
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the button container.
+
+## Example
+
+### Basic Examples
+ 
+```tsx
+import { Button, Icon } from '@zaisustech/atomic-ui';
+
+// Primary button (contained style)
+<Button 
+  variant="primary" 
+  title="Press me" 
+  onPress={() => console.log('Pressed')} 
+/>
+
+// Secondary button
+<Button 
+  variant="secondary" 
+  title="Secondary" 
+  onPress={handlePress}
+/>
+
+// Tertiary button (text style)
+<Button 
+  variant="tertiary" 
+  title="Tertiary" 
+  onPress={handlePress}
+/>
+
+// Outlined button
+<Button 
+  variant="primary.plain" 
+  title="Outlined" 
+  onPress={handlePress}
+/>
+
+// Rounded button (elevated style)
+<Button 
+  variant="primary.rounded" 
+  title="Rounded" 
+  onPress={handlePress}
+/>
+
+// Button with icon
+<Button 
+  variant="primary" 
+  title="With Icon"
+  leftElement={<Icon name="heart" type="fa" />}
+  onPress={handlePress}
+/>
+
+// Disabled button
+<Button 
+  variant="primary" 
+  title="Disabled" 
+  disabled={true}
+  onPress={handlePress}
+/>
+```
+
+

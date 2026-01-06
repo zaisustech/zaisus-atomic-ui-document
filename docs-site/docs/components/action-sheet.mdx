@@ -1,0 +1,195 @@
+---
+sidebar_position: 2
+---
+
+import { ActionSheetPreview } from '@site/src/components/ActionSheetPreview';
+
+# ActionSheet
+
+A modal component that displays a list of options in different presentation styles.
+
+* bottomSheet
+* alert
+* presentTopCard
+
+## Live Example
+
+Try the interactive examples below:
+
+<ActionSheetPreview title="Demo" showMultiple={true} />
+
+## Usage
+
+```tsx
+import { ActionSheet } from '@zaisustech/atomic-ui';
+
+const items = [
+  { value: '1', label: 'Option 1' },
+  { value: '2', label: 'Option 2' },
+  { value: '3', label: 'Option 3' },
+];
+
+const MyComponent = () => {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <ActionSheet
+      visible={visible}
+      items={items}
+      presentationStyle="bottomSheet"
+      title="Choose an option"
+      onClose={() => setVisible(false)}
+      onChange={(item) => console.log('Selected:', item)}
+    />
+  );
+};
+```
+
+## Props
+
+### visible
+
+Type: `boolean`
+
+Controls visibility of the action sheet.
+
+### items
+
+Type: `ActionSheetItem[]`
+
+Array of items to display. Each item has `value: string` and `label: string`.
+
+### value
+
+Type: `ActionSheetItem`
+
+Currently selected item.
+
+### presentationStyle
+
+Type: `'bottomSheet' | 'alert' | 'presentTopCard'`
+
+Default value: `'bottomSheet'`
+
+Presentation style of the modal. Controls how the action sheet is displayed.
+
+* `'bottomSheet'` - Slides up from the bottom of the screen
+* `'alert'` - Centered alert-style modal dialog
+* `'presentTopCard'` - Slides down from the top of the screen
+
+### title
+
+Type: `string`
+
+Optional title displayed at the top.
+
+### onClose
+
+Type: `() => void`
+
+Callback fired when action sheet is closed.
+
+### onChange
+
+Type: `(value: ActionSheetItem) => void`
+
+Callback fired when an item is selected.
+
+## Example
+
+### Basic Usage
+
+<ActionSheetPreview presentationStyle="bottomSheet" title="Choose an option" />
+
+### Different Presentation Styles
+
+#### Bottom Sheet (default)
+
+<ActionSheetPreview presentationStyle="bottomSheet" title="Bottom Sheet" />
+
+#### Alert Dialog
+
+<ActionSheetPreview presentationStyle="alert" title="Select an option" />
+
+#### Top Card
+
+<ActionSheetPreview presentationStyle="presentTopCard" title="Choose" />
+
+### Code Examples
+
+```tsx
+import { ActionSheet } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [visible, setVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const items = [
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+  ];
+
+  return (
+    <>
+      <Button 
+        title="Show Action Sheet" 
+        onPress={() => setVisible(true)} 
+      />
+      <ActionSheet
+        visible={visible}
+        items={items}
+        value={selectedItem}
+        presentationStyle="bottomSheet"
+        title="Choose an option"
+        onClose={() => setVisible(false)}
+        onChange={(item) => {
+          setSelectedItem(item);
+          console.log('Selected:', item);
+        }}
+      />
+    </>
+  );
+}
+```
+
+```tsx
+// Bottom Sheet (default)
+<ActionSheet
+  visible={isVisible}
+  items={items}
+  presentationStyle="bottomSheet"
+  onClose={() => setIsVisible(false)}
+/>
+
+// Alert Dialog
+<ActionSheet
+  visible={isVisible}
+  items={items}
+  presentationStyle="alert"
+  title="Select an option"
+  onClose={() => setIsVisible(false)}
+/>
+
+// Top Card
+<ActionSheet
+  visible={isVisible}
+  items={items}
+  presentationStyle="presentTopCard"
+  title="Choose"
+  onClose={() => setIsVisible(false)}
+/>
+```
+
+## Presentation Styles
+
+The ActionSheet component supports three presentation styles:
+
+- **BottomSheet**: Slides up from the bottom of the screen
+- **Alert**: Centered alert-style modal dialog
+- **TopSheet**: Slides down from the top of the screen
+
+
+
+

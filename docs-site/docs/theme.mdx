@@ -1,0 +1,208 @@
+---
+sidebar_position: 3
+---
+
+# Theme
+
+The Theme system provides a centralized way to manage design tokens and styling across your application. It uses React Context to provide theme values to all components.
+
+## Overview
+
+The theme system consists of:
+
+- **ThemeProvider**: A context provider that wraps your app and supplies theme values
+- **useTheme**: A hook to access theme values in your components
+- **Design Tokens**: Colors, spacing, typography, shadows, and radius values
+
+## Setup
+
+Wrap your application with `ThemeProvider`:
+
+```tsx
+import { ThemeProvider } from '@zaisustech/atomic-ui';
+
+function App() {
+  return (
+    <ThemeProvider>
+      {/* Your app components */}
+    </ThemeProvider>
+  );
+}
+```
+
+## Using the Theme
+
+Access theme values using the `useTheme` hook:
+
+```tsx
+import { useTheme } from '@zaisustech/atomic-ui';
+
+function MyComponent() {
+  const { colors, spacing, typography, radius, shadows } = useTheme();
+
+  return (
+    <View style={{
+      backgroundColor: colors.background,
+      padding: spacing.md,
+      borderRadius: radius.md,
+    }}>
+      <Text style={typography.header.large.bold}>
+        Hello World
+      </Text>
+    </View>
+  );
+}
+```
+
+## Customizing the Theme
+
+You can customize the theme by passing a partial theme object to `ThemeProvider`:
+
+```tsx
+import { ThemeProvider } from '@zaisustech/atomic-ui';
+
+const customTheme = {
+  colors: {
+    primary: '#FF6B6B',
+    secondary: '#4ECDC4',
+  },
+  spacing: {
+    md: 20,
+  },
+};
+
+function App() {
+  return (
+    <ThemeProvider value={customTheme}>
+      {/* Your app */}
+    </ThemeProvider>
+  );
+}
+```
+
+The custom theme will be merged with the default theme, so you only need to override the values you want to change.
+
+## Theme Structure
+
+The theme object has the following structure:
+
+```typescript
+interface Theme {
+  mode: 'light' | 'dark';
+  colors: SemanticColors;
+  spacing: Spacing;
+  radius: Radius;
+  shadows: Shadows;
+  typography: Typography;
+}
+```
+
+### Colors
+
+Semantic color tokens that represent the meaning of colors in your UI:
+
+- **Base**: `background`, `surface`, `card`, `border`, `divider`
+- **Text**: `text`, `textSecondary`, `textDisabled`, `placeholder`
+- **Brand**: `primary`, `primaryText`, `secondary`, `secondaryText`
+- **States**: `success`, `warning`, `error`, `info`
+- **Interaction**: `link`, `focus`, `ripple`
+- **Disabled**: `disabled`, `disabledText`
+- **Overlay**: `backdrop`, `shadow`
+
+### Spacing
+
+Consistent spacing scale for padding, margins, and gaps:
+
+- `none`: 0
+- `xs`: 2
+- `s`: 4
+- `sm`: 8
+- `md`: 16
+- `lg`: 24
+- `xl`: 32
+- `xxl`: 48
+- `xxxl`: 64
+- `xxxxl`: 80
+- `xxxxxl`: 96
+
+### Radius
+
+Border radius values for rounded corners:
+
+- `none`: 0
+- `sm`: 4
+- `md`: 8
+- `lg`: 12
+- `xl`: 16
+- `pill`: 9999
+
+### Shadows
+
+Elevation and shadow definitions:
+
+- `light`: Subtle shadow for slight elevation
+- `thin`: Light shadow for cards
+- `medium`: Medium shadow for modals
+- `thick`: Strong shadow for overlays
+- `heavy`: Very strong shadow for prominent elements
+
+### Typography
+
+Text styles organized by category:
+
+- **Paragraph**: `small`, `default`, `large` (each with `regular`, `bold`, `italic`)
+- **Header**: `small`, `default`, `large` (each with `regular`, `bold`, `italic`)
+- **Label**: `regular`, `bold`, `italic`, `small`
+
+## Example: Custom Theme
+
+```tsx
+import { ThemeProvider } from '@zaisustech/atomic-ui';
+
+const darkTheme = {
+  mode: 'dark',
+  colors: {
+    background: '#1A1A1A',
+    surface: '#2D2D2D',
+    text: '#FFFFFF',
+    textSecondary: '#B0B0B0',
+    primary: '#4ECDC4',
+  },
+};
+
+function App() {
+  return (
+    <ThemeProvider value={darkTheme}>
+      {/* Your app */}
+    </ThemeProvider>
+  );
+}
+```
+
+## Best Practices
+
+1. **Use semantic colors**: Prefer semantic color tokens (`primary`, `error`, etc.) over raw color values
+2. **Consistent spacing**: Always use the spacing scale instead of arbitrary pixel values
+3. **Typography variants**: Use predefined typography variants instead of custom text styles
+4. **Theme at root**: Place `ThemeProvider` at the root of your application
+5. **Type safety**: The theme is fully typed, so TypeScript will help catch errors
+
+## API Reference
+
+### ThemeProvider
+
+```typescript
+type ThemeProviderProps = {
+  children?: React.ReactNode;
+  value?: Partial<Theme>;
+};
+```
+
+### useTheme
+
+```typescript
+const useTheme = (): Theme;
+```
+
+Returns the current theme object. Throws an error if used outside of `ThemeProvider`.
+

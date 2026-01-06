@@ -1,0 +1,67 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #005ce6;
+  --ifm-color-primary-dark: #0052cf;
+  --ifm-color-primary-darker: #004dc3;
+  --ifm-color-primary-darkest: #003fa0;
+  --ifm-color-primary-light: #1a6ef0;
+  --ifm-color-primary-lighter: #2675f2;
+  --ifm-color-primary-lightest: #4d8ff5;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #4d8ff5;
+  --ifm-color-primary-dark: #3d7ff3;
+  --ifm-color-primary-darker: #3575f2;
+  --ifm-color-primary-darkest: #2b5fef;
+  --ifm-color-primary-light: #5d9ff7;
+  --ifm-color-primary-lighter: #67a7f8;
+  --ifm-color-primary-lightest: #7db3fa;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* =======================
+   FontAwesome (Expo uses v4.7)
+   font-family: FontAwesome
+   ======================= */
+   @font-face {
+    font-family: 'FontAwesome';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2')
+        format('woff2'),
+      url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+/* Ionicons — EXACT Expo-compatible font */
+@font-face {
+  font-family: 'ionicons';
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.6.3/fonts/ionicons.woff2')
+      format('woff2'),
+    url('https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.6.3/fonts/ionicons.woff')
+      format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+  /* =======================
+     Material Icons (official)
+     RN Web uses: font-family: material
+     ======================= */
+  @font-face {
+    font-family: 'material';
+    src: url('https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2')
+      format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }

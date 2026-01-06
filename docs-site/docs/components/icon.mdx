@@ -1,0 +1,154 @@
+---
+sidebar_position: 10
+---
+
+import { IconPreview } from '@site/src/components/IconPreview';
+
+# Icon
+
+An icon component supporting FontAwesome, Ionicons, and Material Icons.
+
+* fa (FontAwesome)
+* ion (Ionicons)
+* material (Material Icons)
+
+## Live Example
+
+Try the interactive examples below:
+
+<IconPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { Icon } from '@zaisustech/atomic-ui';
+
+const MyComponent = () => (
+  <Icon name="heart" type="fa" size={24} color="#FF0000" />
+);
+```
+
+## Props
+
+### name
+
+Type: `IconName`
+
+Icon name from the icon library.
+
+### type
+
+Type: `'fa' | 'ion' | 'material'`
+
+Default value: `'fa'`
+
+Icon library type. Specifies which icon library to use for rendering the icon.
+
+* `'fa'` - FontAwesome icons
+* `'ion'` - Ionicons
+* `'material'` - Material Icons
+
+### size
+
+Type: `number`
+
+Default value: `25`
+
+Size of the icon in pixels.
+
+### color
+
+Type: `string`
+
+Color of the icon.
+
+### variant
+
+Type: `'default' | 'circle'`
+
+Default value: `'default'`
+
+Visual variant. Controls the visual presentation of the icon.
+
+* `'default'` - Standard icon without background
+* `'circle'` - Icon with circular background
+
+### style
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the container.
+
+### iconStyle
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the icon.
+
+### value
+
+Type: `string`
+
+Value passed to onPress callback.
+
+### disabled
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the icon is disabled.
+
+### onPress
+
+Type: `(value?: string) => void`
+
+Callback fired when icon is pressed (makes icon pressable).
+
+## Example
+
+### Different Icon Libraries
+
+#### FontAwesome
+
+<IconPreview name="heart" type="fa" size={24} color="#FF0000" />
+
+#### Ionicons
+
+<IconPreview name="heart" type="ion" size={24} color="#FF0000" />
+
+#### Material Icons
+
+<IconPreview name="favorite" type="material" size={24} color="#FF0000" />
+
+### Variants
+
+#### Default
+
+<IconPreview name="heart" type="fa" size={24} variant="default" />
+
+#### Circle
+
+<IconPreview name="heart" type="fa" size={24} variant="circle" />
+
+### Code Examples
+
+```tsx
+import { Icon } from '@zaisustech/atomic-ui';
+
+<Icon name="heart" type="fa" size={24} color="#FF0000" />
+<Icon name="chevron-down" type="ion" size={20} />
+<Icon 
+  name="close" 
+  type="material" 
+  variant="circle"
+  onPress={() => console.log('Pressed')}
+/>
+```
+
+
+
+
+
+
+

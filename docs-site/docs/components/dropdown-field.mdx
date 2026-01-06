@@ -1,0 +1,171 @@
+---
+sidebar_position: 8
+---
+
+import { DropdownFieldPreview } from '@site/src/components/DropdownFieldPreview';
+
+# DropdownField
+
+A dropdown field component for selecting from a list of options.
+
+## Live Example
+
+Try the interactive examples below:
+
+<DropdownFieldPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { DropdownField, DropdownProvider } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const options = [
+    { id: '1', label: 'Option 1', value: 'option1' },
+    { id: '2', label: 'Option 2', value: 'option2' },
+  ];
+
+  return (
+    <DropdownProvider>
+      <DropdownField
+        placeholder="Select an option"
+        options={options}
+        value={selectedOption}
+        onChange={setSelectedOption}
+      />
+    </DropdownProvider>
+  );
+}
+```
+
+## Props
+
+### options
+
+Type: `DropDownOption[]`
+
+Array of options to display.
+
+### value
+
+Type: `DropDownOption`
+
+Currently selected option.
+
+### onChange
+
+Type: `(item: DropDownOption) => void`
+
+Callback fired when option is selected.
+
+### placeholder
+
+Type: `string`
+
+Placeholder text when no option is selected.
+
+### error
+
+Type: `string`
+
+Error message to display.
+
+### disabled
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the dropdown is disabled.
+
+### leftElement
+
+Type: `React.ReactNode`
+
+Element displayed on the left side.
+
+### testID
+
+Type: `string`
+
+Test identifier.
+
+### onRenderItem
+
+Type: `(item: DropDownOption, index: number) => React.JSX.Element`
+
+Custom render function for dropdown items.
+
+## DropDownOption Type
+
+```typescript
+interface DropDownOption {
+  id?: string;
+  label?: string;
+  value?: string;
+  description?: string;
+}
+```
+
+## Setup
+
+Wrap your app with `DropdownProvider`:
+
+```tsx
+import { DropdownProvider } from '@zaisustech/atomic-ui';
+
+function App() {
+  return (
+    <DropdownProvider>
+      {/* Your app */}
+    </DropdownProvider>
+  );
+}
+```
+
+## Example
+
+### Basic Dropdown
+
+<DropdownFieldPreview placeholder="Select an option" />
+
+### With Error State
+
+<DropdownFieldPreview placeholder="Select an option" showMultiple={true} />
+
+### Code Examples
+
+```tsx
+import { DropdownField, DropdownProvider } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const options = [
+    { id: '1', label: 'Option 1', value: 'option1' },
+    { id: '2', label: 'Option 2', value: 'option2' },
+  ];
+
+  return (
+    <DropdownProvider>
+      <DropdownField
+        placeholder="Select an option"
+        options={options}
+        value={selectedOption}
+        onChange={setSelectedOption}
+      />
+    </DropdownProvider>
+  );
+}
+```
+
+
+
+
+
+
+

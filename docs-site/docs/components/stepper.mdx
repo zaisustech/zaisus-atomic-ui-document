@@ -1,0 +1,140 @@
+---
+sidebar_position: 19
+---
+
+import { StepperPreview } from '@site/src/components/StepperPreview';
+
+# Stepper
+
+A numeric stepper component for incrementing and decrementing values.
+
+## Live Example
+
+Try the interactive examples below:
+
+<StepperPreview showMultiple={true} />
+
+## Usage
+
+```tsx
+import { Stepper } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+const MyComponent = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <Stepper
+      value={count}
+      min={0}
+      max={10}
+      step={1}
+      onChange={setCount}
+    />
+  );
+};
+```
+
+## Props
+
+### value
+
+Type: `number`
+
+Current numeric value.
+
+### min
+
+Type: `number`
+
+Default value: `0`
+
+Minimum allowed value.
+
+### max
+
+Type: `number`
+
+Default value: `100`
+
+Maximum allowed value.
+
+### step
+
+Type: `number`
+
+Default value: `1`
+
+Increment/decrement step size.
+
+### onChange
+
+Type: `(value: number) => void`
+
+Callback fired when value changes.
+
+### style
+
+Type: `StyleProp<ViewStyle>`
+
+Custom styles for the container.
+
+### disabled
+
+Type: `boolean`
+
+Default value: `false`
+
+Whether the stepper is disabled.
+
+## Example
+
+### Basic Stepper
+
+<StepperPreview value={0} min={0} max={10} step={1} />
+
+### Custom Range Stepper
+
+<StepperPreview value={5} min={1} max={100} step={5} />
+
+### Disabled Stepper
+
+<StepperPreview value={5} min={0} max={10} step={1} disabled={true} />
+
+### Code Examples
+
+```tsx
+import { Stepper } from '@zaisustech/atomic-ui';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <Stepper
+      value={count}
+      min={0}
+      max={10}
+      step={1}
+      onChange={setCount}
+    />
+  );
+}
+
+// Custom range and step
+<Stepper
+  value={quantity}
+  min={1}
+  max={100}
+  step={5}
+  disabled={false}
+  onChange={setQuantity}
+/>
+```
+
+
+
+
+
+
+
