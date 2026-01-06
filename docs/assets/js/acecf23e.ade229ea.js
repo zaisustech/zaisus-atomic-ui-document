@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkdocs_site=globalThis.webpackChunkdocs_site||[]).push([[1903],{1912(s){s.exports=JSON.parse('{"blogBasePath":"/zaisus-atomic-ui-document/blog","blogTitle":"Blog","authorsListPath":"/zaisus-atomic-ui-document/blog/authors"}')}}]);
