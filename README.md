@@ -1,162 +1,132 @@
-# @zaisustech/atomic-ui
+# Mobile SDK Monorepo
 
-Atomic UI refers to the Atomic Design methodology, a system for creating robust, scalable, and consistent user interfaces by breaking them into hierarchical components.
+Monorepo for mobile SDK libraries and example applications.
 
-## 📚 Documentation
+## Structure
 
-**Full documentation is available at:** [https://zaisustech.github.io/zaisus-atomic-ui-document/](https://zaisustech.github.io/zaisus-atomic-ui-document/)
-
-The documentation includes:
-- Complete installation guide
-- All component APIs with props and examples
-- Usage examples and best practices
-- Setup instructions
-
-## Installation
-
-### Authentication
-
-This package is hosted on GitHub Packages and is **private**. You must authenticate before installing.
-
-#### 1. Generate a GitHub Personal Access Token (PAT)
-
-1. Go to **GitHub → Settings → Developer settings**
-2. Open **Personal access tokens**
-3. Create a **Classic token**
-4. Enable scopes:
-   - ✅ `read:packages`
-   - ✅ `repo` (required for private repos)
-5. Copy the token (you won't see it again)
-
-#### 2. Configure npm / yarn authentication
-
-**Option A — Project-level .npmrc (Recommended)**
-
-Create `.npmrc` in your project root:
-
-```bash
-@zaisustech:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
+```
+mobile-sdk/
+├── libs/
+│   ├── atomic-ui/              # Atomic UI component library (React Native)
+│   └── file-system/            # File system utilities
+├── apps/
+│   ├── example-atomic-ui/      # Storybook app for atomic-ui (React Native)
+│   ├── example-file-system/    # Example Expo app for file-system
+│   └── docs-site/              # Documentation site (Docusaurus)
+└── package.json
 ```
 
-🔒 **Important**: Do NOT commit this file. Add it to `.gitignore`.
+## Setup
 
-**Option B — Global configuration**
+```sh
+# Install Bun (if not installed)
+curl -fsSL https://bun.sh/install | bash
 
-```bash
-npm config set @zaisustech:registry https://npm.pkg.github.com
-npm config set //npm.pkg.github.com/:_authToken YOUR_GITHUB_TOKEN
+# Install dependencies
+bun install
 ```
 
-### Install the Package
+## Development
 
-```bash
-npm install @zaisustech/atomic-ui
+```sh
+# Build libraries
+bunx nx build @zaisustech/atomic-ui      # Build atomic-ui library
+bunx nx build @zaisustech/file-system    # Build file-system library
+
+# Run applications
+bunx nx start example-atomic-ui          # Start Metro (Expo dev client) for Storybook app
+bunx nx start example-file-system        # Start Expo app
+bunx nx dev docs-site                    # Start Docusaurus docs (use nx serve docs-site if no dev target)
+
+# Alternative commands (using root scripts)
+bun run storybook                        # Start example-atomic-ui Metro
+bun run docs:dev                         # Start docs site
+
+# View dependency graph
+bunx nx graph
+```
+
+## Libraries
+
+### @zaisustech/atomic-ui
+
+React Native component library with atomic design principles.
+
+**Usage:**
+```typescript
+import { Button, Input } from '@zaisustech/atomic-ui';
+
+<Button title="Click me" onPress={() => {}} variant="primary" />
+<Input label="Email" value={email} onChangeText={setEmail} />
+```
+
+### @zaisustech/file-system
+
+File system UI component library for React Native/Expo.
+
+**Usage:**
+```typescript
+import { FileManagerContainer } from '@zaisustech/file-system';
+
+<FileManagerContainer
+  initialPath={FileSystem.documentDirectory}
+  onFileSelect={(file) => console.log(file)}
+/>
+```
+
+## Apps
+
+### example-atomic-ui
+
+Storybook application showcasing atomic-ui components (Expo dev client + React Native Storybook).
+
+**Run:**
+```sh
+# Terminal 1 – start Metro (dev client)
+bunx nx start example-atomic-ui
+# or: bun run storybook
+
+# Terminal 2 – run on iOS or Android
+bunx nx run example-atomic-ui:ios
+bunx nx run example-atomic-ui:android
+# Physical device: ios:device / android:device
+# Web: bunx nx run example-atomic-ui:web
+```
+
+### example-file-system
+
+Example Expo application demonstrating file-system library usage.
+
+**Run:**
+```sh
+# Terminal 1 – start Metro (Expo)
+bunx nx start example-file-system
+# or: cd apps/example-file-system && bun run start
+
+# Terminal 2 – run on iOS or Android
+bunx nx run example-file-system:ios
+bunx nx run example-file-system:android
+# Web: bunx nx run example-file-system:web
+```
+
+### docs-site
+
+Docusaurus documentation site.
+
+**Run:**
+```sh
+bunx nx dev docs-site
 # or
-yarn add @zaisustech/atomic-ui
+bun run docs:dev
 ```
 
-### Required Peer Dependencies
+## Notes
 
-Use `expo install` for native modules to ensure version compatibility:
-
-```bash
-npx expo install \
-  expo-font \
-  expo-modules-core \
-  react-native-reanimated \
-  react-native-safe-area-context \
-  react-native-svg
-```
-
-Then install the remaining JS-only dependencies:
-
-```bash
-yarn add \
-  i18next \
-  react-i18next \
-  react-native-modal \
-  @expo/vector-icons
-```
-
-## Quick Start
-
-Wrap your app with the required providers:
-
-```tsx
-import { ThemeProvider, ToastProvider } from '@zaisustech/atomic-ui';
-
-function App() {
-  return (
-    <ThemeProvider>
-      <ToastProvider>
-        {/* Your app content */}
-      </ToastProvider>
-    </ThemeProvider>
-  );
-}
-```
-
-For detailed setup instructions and component usage, see the [documentation](https://zaisustech.github.io/zaisus-atomic-ui-document/).
-
-## Available Components
-
-### UI Components
-
-- Accordion - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/accordion
-- ActionSheet - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/action-sheet
-- Badge - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/badge
-- Button - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/button
-- Card - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/card
-- Carousel - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/carousel
-- Divider - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/divider
-- DropdownField - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/dropdown-field
-- FormFieldContainer - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/form-field-container
-- Icon - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/icon
-- ListItem - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/list-item
-- Pager - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/pager
-- ProgressBar - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/progress-bar
-- ProgressCircle - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/progress-circle
-- RichText - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/rich-text
-- SegmentedControl - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/segmented-control
-- Snackbar - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/snackbar
-- Spacer - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/spacer
-- Stepper - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/stepper
-- TabView - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/tab-view
-- Text - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/text
-- TextInputField - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/text-input-field
-- Toast - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/toast
-- Visible - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/components/visible
-
-### Design Tokens & Theme System
-
-- **Tokens** - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/tokens
-  - Colors (Semantic & Primitive) - Semantic colors for UI states, primitive colors for raw palette
-  - Spacing - Consistent spacing scale (none, xs, s, sm, md, lg, xl, xxl, xxxl, xxxxl, xxxxxl)
-  - Radius - Border radius values (none, sm, md, lg, xl, pill)
-  - Shadows - Elevation definitions (light, thin, medium, thick, heavy)
-  - Typography - Text styles (paragraph, header, label variants)
-
-- **Theme** - https://zaisustech.github.io/zaisus-atomic-ui-document/docs/theme
-  - ThemeProvider - Context provider for theme values
-  - useTheme - Hook to access theme tokens
-  - createTheme - Function to create custom themes
-  - Theme customization and dark mode support
-
-For complete component documentation with props, examples, and usage, visit the [documentation site](https://zaisustech.github.io/zaisus-atomic-ui-document/).
-
-## Contributing
-
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
-- [Development workflow](CONTRIBUTING.md#development-workflow)
-- [Sending a pull request](CONTRIBUTING.md#sending-a-pull-request)
-- [Code of conduct](CODE_OF_CONDUCT.md)
+Both repositories (`atomic-ui` and `file-system`) are configured to work together in the monorepo:
+- All dependencies are hoisted to root `node_modules` for consistency
+- Workspace packages are linked via symlinks
+- Single source of truth for package versions prevents conflicts
 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
