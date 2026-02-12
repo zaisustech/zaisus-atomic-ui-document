@@ -14,7 +14,7 @@
 <script>!function(){"use strict";if("undefined"==typeof window||!window.CSSStyleDeclaration)return;const t=new WeakMap;function e(e){if(t.has(e))return t.get(e);const n=new Proxy(e,{set:function(t,e,n){if("string"==typeof e&&/^\d+$/.test(e)){if("string"==typeof n&&n.includes(":")){const[e,r]=n.split(":").map(t=>t.trim());if(e&&r){try{CSSStyleDeclaration.prototype.setProperty.call(t,e,r)}catch(t){}return!0}}return!0}return t[e]=n,!0},get:function(t,e){if("string"==typeof e&&/^\d+$/.test(e)){return(t.cssText||"").split(";").filter(Boolean)[parseInt(e,10)]||""}const n=t[e];return"function"==typeof n?n.bind(t):n}});return t.set(e,n),n}const n=document.createElement;document.createElement=function(t,r){const o=n.call(this,t,r);if(o.style){const t=e(o.style);Object.defineProperty(o,"style",{get:()=>t,configurable:!0,enumerable:!0})}return o};const r=window.getComputedStyle;window.getComputedStyle=function(t,n){return e(r.call(this,t,n))}}()</script>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel="stylesheet" href="/mobile-sdk-document/assets/css/styles.ddbea28a.css">
-<script src="/mobile-sdk-document/assets/js/runtime~main.ff1a9edf.js" defer="defer"></script>
+<script src="/mobile-sdk-document/assets/js/runtime~main.485a8902.js" defer="defer"></script>
 <script src="/mobile-sdk-document/assets/js/main.23895b8b.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
